@@ -58,7 +58,31 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  window.addEventListener('keydown', (event) => {
 
+    function playSound(event) {
+      // We get the key pressed and the sound that needs to play
+      const activeTab = document.querySelector(`div[data-key='${event.keyCode}']`);
+      const sound = document.querySelector(`audio[data-key='${event.keyCode}']`);
+      if (!sound) return;
+
+      // We change the style for the pressed key and play the sound
+      activeTab.classList.add('playing');
+      sound.currentTime = 0;
+      sound.play();
+      //activeTab.addEventListener('transitionend', removePlayngClass);
+      }
+
+      function removePlayngClass(element) {
+        if (element.propertyName !== 'transform') return;
+        element.target.classList.remove('playing');
+       // element.classList.remove('playing');
+      }
+
+      [...document.querySelectorAll('.key')].forEach(key => key.addEventListener('transitionend', removePlayngClass));
+      window.addEventListener('keydown', playSound);
+    }
+  );
 </script>
 
 
