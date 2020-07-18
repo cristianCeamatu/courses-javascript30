@@ -1,4 +1,6 @@
 ﻿![](https://javascript30.com/images/JS3-social-share.png)
+ 
+### This repo is cloned from the [javaScript30](https://JavaScript30.com) course.
 
 # JavaScript30
 
